@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --gap: .5em;
+    --index: calc(1vw + 1vh);
+    --color-dark: #000;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1em;
+}
+
+.header{
+    text-transform: uppercase;
+    letter-spacing: 0.8em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: calc(var(--index)*2);
+    position: absolute;
+    text-align: center;
+    color: #35363A;
+    margin-top: .2em;
+}
+
+.header span{
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(var(--index)*0.6);
+    letter-spacing: 0.6em;
+    margin-top: 5%;
+}
+
+.gallery{
+    width: 50vh;
+    column-width: 2em;
+    gap: var(--gap);
+    transform: scale(8.3);
+    will-change: transform;
+    transition: transform 1s cubic-bezier(.075, 1, .25, 1), opacity 1s;
+}
+
+.gallery_item{
+    will-change: transform;
+    margin-bottom: var(--gap);
+    transform: scale(1.001);
+    transition: .3s;
+}
+
+.gallery_item:hover{
+    transform: scale(1.1);
+}
+
+.gallery_item img{
+    width: 100%;
+    display: block;
+}
+
+.loaded .gallery{
+    opacity: 1;
+}
+
+.loaded .header span{
+    opacity: 0;
+}
+
+/* tema */
+
+@media(prefers-color-scheme: dark){
+    body{
+        background-color: var(--color-dark);
+    }
+    .header{
+        filter: invert(100%);
+    }
+}
+
